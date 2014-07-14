@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "map-gen", "map-gen\map-gen.csproj", "{D261C469-E00A-4F1C-BAF7-4411EB94583C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D261C469-E00A-4F1C-BAF7-4411EB94583C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D261C469-E00A-4F1C-BAF7-4411EB94583C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D261C469-E00A-4F1C-BAF7-4411EB94583C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D261C469-E00A-4F1C-BAF7-4411EB94583C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
