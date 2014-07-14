@@ -1,8 +1,11 @@
 ﻿<Window x:Class="map_gen.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
+        Title="MainWindow" Height="600" Width="900"
+        xmlns:mg="clr-namespace:map_gen">
+    <Window.Resources>
+        <mg:MainWindowVM x:Key="mainWindowViewModel" />
+    </Window.Resources>
+    <Grid DataContext="{StaticResource ResourceKey=mainWindowViewModel}">   <!-- This makes all my bindings access the mainWindowViewModel object. -->
     </Grid>
 </Window>
