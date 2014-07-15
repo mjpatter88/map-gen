@@ -1,0 +1,13 @@
+map-gen
+=======
+
+Generates grid based maps built with hexagons or squares.
+
+Things to do:
+1) Load a map from a text file.
+2) Save a map to a text file.
+3) Attach terrain, etc to each tile
+4) Map generation based on input parameters
+
+Helpful Links:
+http://www.redblobgames.com/grids/hexagons/
