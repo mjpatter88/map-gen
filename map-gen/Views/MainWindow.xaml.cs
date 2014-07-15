@@ -30,7 +30,6 @@ namespace map_gen
 
         private void ItemsControl_MouseWheel(object sender, MouseWheelEventArgs e)
         {
-            Console.WriteLine(e.Delta);
             if (e.Delta > 0)
             {
                 viewModel.ZoomLevel += 0.1;

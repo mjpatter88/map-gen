@@ -19,10 +19,11 @@ namespace map_gen
             }
             set
             {
-                if (_zoomLevel != value)
+                // Only allow zooming out to 10% for now.
+                if (_zoomLevel != value && value > 0.1)
                 {
-                    OnPropertyChanged("ZoomLevel");
                     _zoomLevel = value;
+                    OnPropertyChanged("ZoomLevel");
                 }
             }
         }

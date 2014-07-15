@@ -24,9 +24,9 @@ namespace map_gen
             {
                 if (_x != value)
                 {
+                    _x = value;
                     OnPropertyChanged("X");
                     OnPropertyChanged("negX");
-                    _x = value;
                 }
             }
         }
@@ -47,9 +47,9 @@ namespace map_gen
             {
                 if (_y != value)
                 {
+                    _y = value;
                     OnPropertyChanged("Y");
                     OnPropertyChanged("negY");
-                    _y = value;
                 }
             }
         }
@@ -70,8 +70,8 @@ namespace map_gen
             {
                 if (_size != value)
                 {
-                    OnPropertyChanged("Size");
                     _size = value;
+                    OnPropertyChanged("Size");
                 }
             }
         }
