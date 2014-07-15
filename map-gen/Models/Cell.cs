@@ -25,8 +25,16 @@ namespace map_gen
                 if (_x != value)
                 {
                     OnPropertyChanged("X");
+                    OnPropertyChanged("negX");
                     _x = value;
                 }
+            }
+        }
+        public int negX 
+        {
+            get
+            {
+                return -_x;
             }
         }
         public int Y 
@@ -40,8 +48,16 @@ namespace map_gen
                 if (_y != value)
                 {
                     OnPropertyChanged("Y");
+                    OnPropertyChanged("negY");
                     _y = value;
                 }
+            }
+        }
+        public int negY 
+        {
+            get
+            {
+                return -_y;
             }
         }
         public int Size 

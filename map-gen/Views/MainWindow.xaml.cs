@@ -20,9 +20,25 @@ namespace map_gen
     /// </summary>
     public partial class MainWindow : Window
     {
+        private MainWindowVM viewModel;
+
         public MainWindow()
         {
             InitializeComponent();
+            viewModel = (MainWindowVM)FindResource("mainWindowViewModel");
+        }
+
+        private void ItemsControl_MouseWheel(object sender, MouseWheelEventArgs e)
+        {
+            Console.WriteLine(e.Delta);
+            if (e.Delta > 0)
+            {
+                viewModel.ZoomLevel += 0.1;
+            }
+            else
+            {
+                viewModel.ZoomLevel -= 0.1;
+            }
         }
     }
 }

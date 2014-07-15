@@ -61,16 +61,16 @@
 
                 <!--</Canvas>-->
                 <!-- We use an ItemsControl instead of a canvas to better bind to a collection of objects -->
-                <ItemsControl ItemsSource="{Binding Cells}" Background="AliceBlue">
+                <ItemsControl ItemsSource="{Binding Cells}" Background="AliceBlue" MouseWheel="ItemsControl_MouseWheel">
 
                     <!-- This chunk makes the container act like a canvas-->
                     <ItemsControl.ItemsPanel> 
                         <ItemsPanelTemplate>
-                            <Canvas IsItemsHost="True" />
+                            <mg:CartesianCanvas IsItemsHost="True" />
                         </ItemsPanelTemplate>
                     </ItemsControl.ItemsPanel>
 
-                    <!-- This chunk sets the properties of each item's container? -->
+                    <!-- This chunk sets the properties of each item's container (in this case the canvas)? -->
                     <ItemsControl.ItemContainerStyle>
                         <Style>
                             <Setter Property="Canvas.Left" Value="{Binding X}" />
@@ -81,7 +81,13 @@
                     <!-- This chunk sets the type of each item along with its properties -->
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <Polygon Points="{Binding Points}" Fill="White" Stroke="LightSkyBlue" StrokeThickness="1.5"></Polygon>
+                            <Polygon Points="{Binding Points}" Fill="White" Stroke="LightSkyBlue" StrokeThickness="1.5">
+                                <Polygon.RenderTransform>
+                                    <ScaleTransform ScaleX="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Grid}}, Path=DataContext.ZoomLevel}" 
+                                                    ScaleY="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Grid}}, Path=DataContext.ZoomLevel}" 
+                                                    CenterX="{Binding negX}" CenterY="{Binding negY}" />
+                                </Polygon.RenderTransform>
+                            </Polygon>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>
