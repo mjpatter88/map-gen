@@ -26,15 +26,7 @@ namespace map_gen
                 {
                     _x = value;
                     OnPropertyChanged("X");
-                    OnPropertyChanged("negX");
                 }
-            }
-        }
-        public int negX 
-        {
-            get
-            {
-                return -_x;
             }
         }
         public int Y 
@@ -49,15 +41,7 @@ namespace map_gen
                 {
                     _y = value;
                     OnPropertyChanged("Y");
-                    OnPropertyChanged("negY");
                 }
-            }
-        }
-        public int negY 
-        {
-            get
-            {
-                return -_y;
             }
         }
         public int Size 
@@ -76,6 +60,10 @@ namespace map_gen
             }
         }
         abstract public PointCollection Points { get; }
+        abstract public double PixLocX { get; }         // The actual pixel coordinates for drawing on the canvas
+        abstract public double PixLocY { get; }
+        abstract public double NegPixLocY { get; }
+        abstract public double NegPixLocX { get; }
 
         public Cell()
         {

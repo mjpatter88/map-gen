@@ -16,5 +16,21 @@ namespace map_gen
                 throw new NotImplementedException();
             }
         }
+        public override double PixLocX
+        {
+            get { throw new NotImplementedException(); }
+        }
+        public override double PixLocY
+        {
+            get { throw new NotImplementedException(); }
+        }
+        public override double NegPixLocX
+        {
+            get { throw new NotImplementedException(); }
+        }
+        public override double NegPixLocY
+        {
+            get { throw new NotImplementedException(); }
+        }
     }
 }

@@ -28,16 +28,16 @@ namespace map_gen
                 }
                 double x = 0.0;
                 double y = 0.0;
-                double left = GetLeft(element);
-                if (!double.IsNaN(left))
+                double right = GetRight(element);
+                if (!double.IsNaN(right))
                 {
-                    x = left;
+                    x = right;
                 }
 
                 double top = GetTop(element);
                 if (!double.IsNaN(top))
                 {
-                    y = top;
+                    y = -top;
                 }
 
                 // This is really the only change as we position things relative to the middle, 

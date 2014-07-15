@@ -74,8 +74,8 @@
                     <!-- This chunk sets the properties of each item's container (in this case the canvas)? -->
                     <ItemsControl.ItemContainerStyle>
                         <Style>
-                            <Setter Property="Canvas.Left" Value="{Binding X}" />
-                            <Setter Property="Canvas.Top" Value="{Binding Y}" />
+                            <Setter Property="Canvas.Right" Value="{Binding PixLocX}" />
+                            <Setter Property="Canvas.Top" Value="{Binding PixLocY}" /> 
                         </Style>
                     </ItemsControl.ItemContainerStyle>
 
@@ -88,7 +88,7 @@
                                                         <!-- We have to do the binding this way since we are inside the ItemsControl which is sourced to each cell.-->
                                         <ScaleTransform ScaleX="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Grid}}, Path=DataContext.ZoomLevel}" 
                                                         ScaleY="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Grid}}, Path=DataContext.ZoomLevel}" 
-                                                        CenterX="{Binding negX}" CenterY="{Binding negY}" />
+                                                        CenterX="{Binding NegPixLocX}" CenterY="{Binding PixLocY}" />
                                         <TranslateTransform X="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Grid}}, Path=DataContext.TranslateX}"
                                                             Y="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Grid}}, Path=DataContext.TranslateY}" />
                                     </TransformGroup>

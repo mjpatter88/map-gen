@@ -17,10 +17,25 @@ namespace map_gen
 
         public override PointCollection Points
         {
-            get
-            {
-                return _points;
-            }
+            get { return _points; }
+        }
+
+        public override double PixLocX
+        {
+            get { return this.X * 1.5 * this.Size; }
+        }
+
+        public override double PixLocY
+        {
+            get { return this.Y * sqrt3DividedBy2 * this.Size; }
+        }
+        public override double NegPixLocX
+        {
+            get { return -this.PixLocX; }
+        }
+        public override double NegPixLocY
+        {
+            get { return -this.PixLocY; }
         }
 
         public HexCell(int x, int y, int size) : base(x, y, size)

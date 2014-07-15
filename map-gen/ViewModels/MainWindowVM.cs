@@ -78,8 +78,10 @@ namespace map_gen
         {
             Cells = new ObservableCollection<Cell>();
             //Hard code some data to test
-            Cells.Add(new HexCell(50, 50, 100));
-            Cells.Add(new HexCell(100, 100, 100));
+            Cells.Add(new HexCell(0, 0, 100));
+            Cells.Add(new HexCell(0, 2, 100));
+            Cells.Add(new HexCell(1, 1, 100));
+            Cells.Add(new HexCell(2, 0, 100));
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
