@@ -61,7 +61,8 @@
 
                 <!--</Canvas>-->
                 <!-- We use an ItemsControl instead of a canvas to better bind to a collection of objects -->
-                <ItemsControl ItemsSource="{Binding Cells}" Background="AliceBlue" MouseWheel="ItemsControl_MouseWheel">
+                <ItemsControl ItemsSource="{Binding Cells}" Background="Ivory" MouseWheel="ItemsControl_MouseWheel" 
+                              MouseLeftButtonDown="ItemsControl_MouseLeftButtonDown" MouseLeftButtonUp="ItemsControl_MouseLeftButtonUp" MouseMove="ItemsControl_MouseMove">
 
                     <!-- This chunk makes the container act like a canvas-->
                     <ItemsControl.ItemsPanel> 
@@ -81,13 +82,21 @@
                     <!-- This chunk sets the type of each item along with its properties -->
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
-                            <Polygon Points="{Binding Points}" Fill="White" Stroke="LightSkyBlue" StrokeThickness="1.5">
-                                <Polygon.RenderTransform>
-                                    <ScaleTransform ScaleX="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Grid}}, Path=DataContext.ZoomLevel}" 
-                                                    ScaleY="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Grid}}, Path=DataContext.ZoomLevel}" 
-                                                    CenterX="{Binding negX}" CenterY="{Binding negY}" />
-                                </Polygon.RenderTransform>
-                            </Polygon>
+                            <Canvas> <!-- We make each cell a canvas so we can have multiple controls/elements in it.-->
+                                <Canvas.RenderTransform>
+                                    <TransformGroup>
+                                                        <!-- We have to do the binding this way since we are inside the ItemsControl which is sourced to each cell.-->
+                                        <ScaleTransform ScaleX="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Grid}}, Path=DataContext.ZoomLevel}" 
+                                                        ScaleY="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Grid}}, Path=DataContext.ZoomLevel}" 
+                                                        CenterX="{Binding negX}" CenterY="{Binding negY}" />
+                                        <TranslateTransform X="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Grid}}, Path=DataContext.TranslateX}"
+                                                            Y="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Grid}}, Path=DataContext.TranslateY}" />
+                                    </TransformGroup>
+                                </Canvas.RenderTransform>
+                                <Polygon Points="{Binding Points}" Fill="LightSkyBlue" Stroke="RoyalBlue" StrokeThickness="1.5">
+                                </Polygon>
+                                <Ellipse Width="5" Height="5" Fill="Ivory" Stroke="RoyalBlue" StrokeThickness="1.5"></Ellipse>
+                            </Canvas>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>

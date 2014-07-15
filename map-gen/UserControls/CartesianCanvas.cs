@@ -40,6 +40,8 @@ namespace map_gen
                     y = top;
                 }
 
+                // This is really the only change as we position things relative to the middle, 
+                // not relative to the top left as done in the standard canvas control.
                 element.Arrange(new Rect(new Point(middle.X + x, middle.Y + y), element.DesiredSize));
             }
             return arrangeSize;
