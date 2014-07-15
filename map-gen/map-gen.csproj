@@ -62,6 +62,8 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Models\Cell.cs" />
+    <Compile Include="Models\HexCell.cs" />
+    <Compile Include="Models\SquareCell.cs" />
     <Compile Include="ViewModels\MainWindowVM.cs" />
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

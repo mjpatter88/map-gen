@@ -54,12 +54,37 @@
             <!--Need to use a border to get the correct clipping behavior on the canvas.-->
             <Border ClipToBounds="True" Grid.Column="1">
                 <!--Need to give it a background to detect all clicks-->
-                <Canvas Grid.Column="1" Name="Canvas1" Background="White">
+                <!--<Canvas Grid.Column="1" Name="Canvas1" Background="White">-->
 
-                    <Ellipse Canvas.Left="10" Canvas.Top="10" Height="50" Width="50" Stroke="LightSkyBlue" StrokeThickness="2.5" Fill="AliceBlue" Name="Ellipse1"></Ellipse>
-                    <Polygon Points="100,100 150,75 200,100 200,150 150,175 100,150" Fill="White" Stroke="LightSkyBlue" StrokeThickness="1.5" Name="Polygon1"></Polygon>
+                    <!--<Ellipse Canvas.Left="10" Canvas.Top="10" Height="50" Width="50" Stroke="LightSkyBlue" StrokeThickness="2.5" Fill="AliceBlue" Name="Ellipse1"></Ellipse>-->
+                    <!--<Polygon Points="100,100 150,75 200,100 200,150 150,175 100,150" Fill="White" Stroke="LightSkyBlue" StrokeThickness="1.5" Name="Polygon1"></Polygon>-->
 
-                </Canvas>
+                <!--</Canvas>-->
+                <!-- We use an ItemsControl instead of a canvas to better bind to a collection of objects -->
+                <ItemsControl ItemsSource="{Binding Cells}" Background="AliceBlue">
+
+                    <!-- This chunk makes the container act like a canvas-->
+                    <ItemsControl.ItemsPanel> 
+                        <ItemsPanelTemplate>
+                            <Canvas IsItemsHost="True" />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+
+                    <!-- This chunk sets the properties of each item's container? -->
+                    <ItemsControl.ItemContainerStyle>
+                        <Style>
+                            <Setter Property="Canvas.Left" Value="{Binding X}" />
+                            <Setter Property="Canvas.Top" Value="{Binding Y}" />
+                        </Style>
+                    </ItemsControl.ItemContainerStyle>
+
+                    <!-- This chunk sets the type of each item along with its properties -->
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Polygon Points="{Binding Points}" Fill="White" Stroke="LightSkyBlue" StrokeThickness="1.5"></Polygon>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
             </Border>
         </Grid>
     </Grid>
