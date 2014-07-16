@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -66,6 +67,37 @@ namespace map_gen
                 viewModel.TranslateX += curPos.X - oldPosition.X;
                 viewModel.TranslateY += curPos.Y - oldPosition.Y;
                 oldPosition = curPos;
+            }
+        }
+
+        //At this point the image has the same dimensions and view as the canvas
+        private void butExport_Click(object sender, RoutedEventArgs e)
+        {
+            Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
+            dlg.AddExtension = true;
+            dlg.OverwritePrompt = true;
+            dlg.DefaultExt = ".png";
+            dlg.Filter = "PNG Files (*.png)|*.png";
+
+            bool? result = dlg.ShowDialog();
+            if (result == true)
+            {
+                string filename = dlg.FileName;
+                Console.WriteLine(filename);
+
+                // Create the image and write it to the file
+                Uri path = new Uri(filename);
+                Size size = new Size(MainCanvas.ActualWidth, MainCanvas.ActualHeight);
+
+                RenderTargetBitmap renderBitmap = new RenderTargetBitmap((int)size.Width, (int)size.Height, 96d, 96d, PixelFormats.Pbgra32);
+                renderBitmap.Render(MainCanvas);
+
+                using (FileStream outStream = new FileStream(path.LocalPath, FileMode.Create))
+                {
+                    PngBitmapEncoder encoder = new PngBitmapEncoder();
+                    encoder.Frames.Add(BitmapFrame.Create(renderBitmap));
+                    encoder.Save(outStream);
+                }
             }
         }
     }

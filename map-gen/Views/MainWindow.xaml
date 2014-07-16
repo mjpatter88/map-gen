@@ -48,7 +48,7 @@
                 <Button Margin="10, 20, 10, 10" Height="30">Generate New Map</Button>
                 <Button Margin="10, 10, 10, 10" Height="30">Load Map</Button>
                 <Button Margin="10, 10, 10, 10" Height="30">Save Map</Button>
-                <Button Margin="10, 10, 10, 10" Height="30">Button 4</Button>
+                <Button Margin="10, 10, 10, 10" Height="30" Name="butExport" Click="butExport_Click">Export Image</Button>
                 <Button Margin="10, 10, 10, 10" Height="30">Button 5</Button>
             </StackPanel>
             <!--Need to use a border to get the correct clipping behavior on the canvas.-->
@@ -61,7 +61,7 @@
 
                 <!--</Canvas>-->
                 <!-- We use an ItemsControl instead of a canvas to better bind to a collection of objects -->
-                <ItemsControl ItemsSource="{Binding Cells}" Background="Ivory" MouseWheel="ItemsControl_MouseWheel" 
+                <ItemsControl Name="MainCanvas" ItemsSource="{Binding Cells}" Background="Ivory" MouseWheel="ItemsControl_MouseWheel" 
                               MouseLeftButtonDown="ItemsControl_MouseLeftButtonDown" MouseLeftButtonUp="ItemsControl_MouseLeftButtonUp" MouseMove="ItemsControl_MouseMove">
 
                     <!-- This chunk makes the container act like a canvas-->

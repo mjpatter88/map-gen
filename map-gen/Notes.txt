@@ -3,6 +3,7 @@ Things to do:
 2) Save a map to a text file.
 3) Attach terrain, etc to each tile
 4) Map generation based on input parameters
+5) Print map to png (set desired image size and "current view" or "entire map")
 
 Helpful Links:
 http://www.redblobgames.com/grids/hexagons/
