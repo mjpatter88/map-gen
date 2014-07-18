@@ -79,9 +79,26 @@ namespace map_gen
             Cells = new ObservableCollection<Cell>();
             //Hard code some data to test
             Cells.Add(new HexCell(0, 0, 100));
-            Cells.Add(new HexCell(0, 2, 100));
-            Cells.Add(new HexCell(1, 1, 100));
-            Cells.Add(new HexCell(2, 0, 100));
+            for (int i = 0; i < 10; i++)
+            {
+                if (i % 2 == 0)
+                {
+                    Cells.Add(new HexCell(i, 0, 100));
+                    for (int j = 2; j < 11; j += 2)
+                    {
+                        Cells.Add(new HexCell(i, j, 100));
+                        Cells.Add(new HexCell(i, -j, 100));
+                    }
+                }
+                else
+                {
+                    for (int j = 1; j < 11; j += 2)
+                    {
+                        Cells.Add(new HexCell(i, j, 100));
+                        Cells.Add(new HexCell(i, -j, 100));
+                    }
+                }
+            }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
